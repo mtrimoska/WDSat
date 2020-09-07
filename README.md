@@ -1,4 +1,4 @@
 # WDSat
 A SAT solver dedicated to solving instances derived from a Weil descent.
 
-Coming up.
+User manual coming up.
