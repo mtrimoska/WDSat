@@ -119,13 +119,11 @@ bool wdsat_solve_rest(int_t l, int_t set_end, int_t conf[]) {
 	if(!_terset_is_undef(set[l])) return wdsat_solve_rest(l + 1, set_end,conf);
 	_terset_breakpoint;
 	_xorset_breakpoint;
-	_xorgauss_breakpoint;
 	conf[0]++;
 	if(!wdsat_set_true(-set[l]))
 	{
 		terset_undo();
 		xorset_undo();
-		xorgauss_undo();
 		if(!wdsat_set_true(set[l])) return false;
 		return wdsat_solve_rest(l + 1, set_end,conf);
 		
@@ -136,7 +134,6 @@ bool wdsat_solve_rest(int_t l, int_t set_end, int_t conf[]) {
 		{
 			terset_undo();
 			xorset_undo();
-			xorgauss_undo();
 			if(!wdsat_set_true(set[l])) return false;
 			return wdsat_solve_rest(l + 1, set_end,conf);
 		}
@@ -144,7 +141,6 @@ bool wdsat_solve_rest(int_t l, int_t set_end, int_t conf[]) {
 		{
 			_terset_mergepoint;
 			_xorset_mergepoint;
-			_xorgauss_mergepoint;
 			return true;
 		}
 	}
@@ -392,7 +388,7 @@ bool wdsat_infer(const int_t l) {
 	int_t xorgauss_history_last = xorgauss_history_top;
 	int_t _l;
 	
-	if(!terset_set_true(l)) return false;
+	if(!wdsat_set_true(l)) return false;
 	while(_loop_pass) {
 		// finalyse with XORGAUSS
 		_continue = false;
@@ -414,7 +410,7 @@ bool wdsat_infer(const int_t l) {
 				if(_terset_is_false(_l)) return false;
 				if(_terset_is_undef(_l)) {
 					_loop_pass = true;
-					if(!terset_set_true(_l)) return false;
+					if(!wdsat_set_true(_l)) return false;
 				}
 			}
 			xorgauss_history_last = xorgauss_history_top;
