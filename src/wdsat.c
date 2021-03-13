@@ -479,8 +479,8 @@ bool wdsat_solve(int_t n, int_t new_l, int_t new_m, char *irr, char *X3, int_t x
 	//xorgauss_fprint();
 	
 	//check allocated memory
-	if(dimacs_nb_vars() < __ID_SIZE__)
-		printf("\n!!! Running times are not optimal with these parameters. Set the __ID_SIZE__ constant to %d !!!\n\n", dimacs_nb_vars());
+	if(dimacs_nb_vars() < __MAX_ID__)
+		printf("\n!!! Running times are not optimal with these parameters. Set the __MAX_ID__ constant to %d !!!\n\n", dimacs_nb_vars());
 	
 	//code for multithread: assign prefix for this thread
 	if(strlen(thread) > 0)
