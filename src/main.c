@@ -18,7 +18,7 @@
 
 #include "wdsat_utils.h"
 #include "dimacs.h"
-#include "terset.h"
+#include "cnf.h"
 #include "xorset.h"
 #include "xorgauss.h"
 #include "wdsat.h"

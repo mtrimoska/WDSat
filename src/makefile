@@ -12,7 +12,7 @@ EDIT = vi
 ARC = ../wdsat_solver
 
 SRC_SAT = 
-SRC_GEN = main.c wdsat_utils.c dimacs.c terset.c xorset.c xorgauss.c wdsat.c
+SRC_GEN = main.c wdsat_utils.c dimacs.c cnf.c xorset.c xorgauss.c wdsat.c
 
 OBJ_SAT = $(SRC_SAT:.c=.o)
 LIB_SAT = $(SRC_SAT:.c=.h)
