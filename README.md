@@ -34,7 +34,7 @@ The core structures in the different WDSat modules are statically allocated and,
 
 ### Input forms
 #### CNF
-This input corresponds to the classical dimacs form. 
+This input corresponds to the classical dimacs CNF form. 
 #### Example 
 &#172; x<sub>3</sub>  &#8744;  x<sub>2</sub>
 
