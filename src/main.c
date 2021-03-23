@@ -67,9 +67,6 @@ int scan_opt(int argc, char **argv, const char *opt) {
 	char c;
 	while ((c = getopt (argc, argv, opt)) != -1)
 		switch (c) {
-#ifdef _OPENMP
-			case 't': threads = atoi(optarg); break;
-#endif
 			case 'a': if(!strncmp(optarg, "compile", 7)) action = 0; if(!strncmp(optarg, "time", 4)) action = 2; if(!strncmp(optarg, "delete", 6)) action = 3; if(!strncmp(optarg, "color", 5)) action = 4; break;
 			case 'i': strcpy(input_filename, optarg); break;
 			case 'o': strcpy(output_filename, optarg); break;
@@ -116,12 +113,10 @@ int main(int argc, char * argv[]) {
 	byte_t exit_value = (byte_t) EXIT_SUCCESS;
 	
 	char *syntax =
-	"c          -a action  : where action is compile or solve\n"
-	"c          -i file    : where file is a dimacs format input file\n"
-	"c          -o file    : where file is a cid output file\n"
-#ifdef _OPENMP
-	"c          -t thrd    : where thrd is the number of threads\n"
-#endif
+	"c          -x : to enable Gaussian Elimination\n"
+	"c          -i file    : where file is the input file\n"
+	"c          -g mvc    : where mvc is a string of comma-separated variables that defines statically the branching order\n"
+	"c          -h : help (shows the argument list)\n"
 	;
 	
 	goto on_continue;
@@ -138,11 +133,7 @@ on_break:
 	goto end;
 	
 on_continue:
-#ifdef _OPENMP
-	if(scan_opt(argc, argv, "t:i:o:a:")) goto on_break;
-#else
-	if(scan_opt(argc, argv, "i:o:a:n:l:xbcsh:m:g:t:")) goto on_break;
-#endif
+	if(scan_opt(argc, argv, "i:o:a:n:l:xbcshm:g:t:")) goto on_break;
 	
 	
 	if(!generate(input_filename, output_filename)) {
