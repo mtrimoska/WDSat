@@ -32,19 +32,5 @@ The core structures in the different WDSat modules are statically allocated and,
 * __\_\_MAX_XEQ\_\___ defines the maximum number of XOR-clauses. 
 * __\_\_MAX_XEQ_SIZE\_\___ defines the maximum size of XOR-clauses. Be careful, since the size of XOR-clauses can increase when Gaussian Elimination is performed. Try to estimate, or at worst, set to __\_\_MAX_ID\_\___. When this value is underestimated, execution fails, but not necessarily straightaway. 
 
-### Input forms
-#### CNF
-This input corresponds to the classical dimacs form. 
-#### Example 
 
-
-   x<sub>1</sub>  `∨`  x<sub>2</sub> `∨` `¬` x<sub>3</sub>
-x<sub>2</sub> `∨` x<sub>4</sub>
-
-
-
-#### CNF-XOR
-This input corresponds to the classical CNF-XOR input, where XOR-clauses are distinguished from OR-clauses by adding an 'x' at the start of the line.
-
-#### Example
 
