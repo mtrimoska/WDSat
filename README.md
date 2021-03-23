@@ -25,12 +25,12 @@ The core structures in the different WDSat modules are statically allocated and,
 * When __\_\_FIND_ALL_SOLUTIONS\_\___ is defined, the solver outputs all solutions instead of stopping after the first solution is found, and outputs UNSAT at the end. 
 * __\_\_MAX_ANF_ID\_\___ defines the maximum number of unary variables, i.e. variables in the ANF form. Always add +1 to the actual value.
 * __\_\_MAX_DEGREE\_\___ defines the maximum degree of the Boolean polynomial systems from which SAT instances are derived. Always add +1 to the actual value.
-* __\_\_MAX_ID\_\___ defines the maximum number of variables in the CNF-XOR form, but has to be set even when the given input is in ANF. For goof performance, it is important to set this constant to the exact value. If the estimation is badly made, the solver will alert you at the beginning and will give you the correct value for the current instance. 
+* __\_\_MAX_ID\_\___ defines the maximum number of variables in the CNF-XOR form, but has to be set even when the given input is in ANF. For good performance, it is important to set this constant to the exact value. If the estimation is badly made, the solver will alert you at the beginning and will give you the correct value for the current instance. 
 * __\_\_MAX_BUFFER_SIZE\_\___ is complicated to estimate. Start with 5000 and increase if not enough (execution will stop immediately, with an appropriate error message).
 * __\_\_MAX_EQ\_\___ defines the maximum number of OR-clauses. 
 * __\_\_MAX_EQ_SIZE\_\___ defines the maximum size of OR-clauses. Always add +1 to the actual value. This value always corresponds to (__\_\_MAX_DEGREE\_\___ + 1).
 * __\_\_MAX_XEQ\_\___ defines the maximum number of XOR-clauses. 
-* __\_\_MAX_XEQ_SIZE\_\___ defines the maximum size of XOR-clauses. Be careful, since the size of XOR-clauses can increase when Gaussian Elimination is performed. Try to estimate, or at worst, set to __\_\_MAX_ID\_\___. When this value is underestimated, execution fails, but not necessarily straightaway. 
+* __\_\_MAX_XEQ_SIZE\_\___ defines the maximum size of XOR-clauses. Be careful, the size of XOR-clauses can increase when Gaussian Elimination is performed. Try to estimate, or at worst, set to __\_\_MAX_ID\_\___. When this value is underestimated, execution fails, but not necessarily straightaway. 
 
 
 
