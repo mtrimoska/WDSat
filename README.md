@@ -14,8 +14,8 @@ in the ```src``` folder wil create the ```wdsat_solver``` executable in the root
 
 ### Command-line arguments
 ```
--i file    : where file is the input file
--x : to enable Gaussian Elimination
+-i file   : where file is the input file
+-x        : to enable Gaussian Elimination
 -g mvc    : where mvc is a string of comma-separated variables that defines statically the branching order
 ```
 
