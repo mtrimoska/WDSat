@@ -1,7 +1,7 @@
 # WDSat
 A SAT solver dedicated to solving instances derived from a Weil descent.
 
-WDSat was introduced at CP20 [(see paper)](https://arxiv.org/abs/2001.11229) as a joint work with [Gilles Dequen](https://home.mis.u-picardie.fr/~dequen/doku.php) and [Sorina Ionica](https://home.mis.u-picardie.fr/~ionica/). 
+WDSat was introduced at CP20 [(see paper)](https://arxiv.org/abs/2001.11229) as a joint work with [Sorina Ionica](https://home.mis.u-picardie.fr/~ionica/) and [Gilles Dequen](https://home.mis.u-picardie.fr/~dequen/doku.php). 
 
 ### Dependencies
 WDSat is built from scratch and has no particular dependencies, apart from the essential tools. 
