@@ -36,14 +36,14 @@ The core structures in the different WDSat modules are statically allocated and,
 #### CNF
 This input corresponds to the classical dimacs form. 
 #### Example
-```
-x_1 \lor x_2 \lor \lnot x_3
+
+\\(x_1 \lor x_2 \lor \lnot x_3\\)
 x_2 \lor x_4
-```
 
 
-## CNF-XOR
+
+#### CNF-XOR
 This input corresponds to the classical CNF-XOR input, where XOR-clauses are distinguished from OR-clauses by adding an 'x' at the start of the line.
 
-# Example
+#### Example
 
