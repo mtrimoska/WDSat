@@ -21,5 +21,5 @@ in the ```src``` folder wil create the ```wdsat_solver``` executable in the root
 
 ### Configuration
 The core structures in the different WDSat modules are statically allocated and, currently, several constants need to be set manually in the ```config.h``` file.
-* When the constant ____XG_ENHANCED____ is defined, the XORGAUSS-extended module is used for Gaussian Elimination and the input instance has to be in ANF form. (see input forms section)
+* When the constant __\_\_XG_ENHANCED\_\___ is defined, the XORGAUSS-extended module is used for Gaussian Elimination and the input instance has to be in ANF form. (see input forms section)
 * When the constant ____FIND_ALL_SOLUTIONS____ is defined, the solver outputs all solutions instead of stopping after the first solution is found, and outputs UNSAT at the end. 
