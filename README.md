@@ -90,7 +90,7 @@ x<sub>1</sub> &#8853; (x<sub>1</sub> &#8743; x<sub>2</sub>) &#8853; x<sub>6</sub
 is written as
 
 ```
-p cnf 6 2
+p cnf 6 3
 x 1 2 4 5 T 0
 x 1 .2 1 2 6 0
 x .3 2 3 6 6 T 0
