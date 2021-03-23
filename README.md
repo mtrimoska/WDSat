@@ -36,9 +36,9 @@ The core structures in the different WDSat modules are statically allocated and,
 #### CNF
 This input corresponds to the classical dimacs form. 
 #### Example
-
-x<sub>1</sub>  `∨`  x_2 \lor \lnot x_3
-x_2 \lor x_4
+````
+x<sub>1</sub>  `∨`  x<sub>2</sub> `∨` `¬` x<sub>3</sub>
+x<sub>2</sub> `∨` x<sub>4</sub>
 
 
 
