@@ -461,11 +461,13 @@ bool wdsat_infer_unitary() {
 
 /// @fn solve();
 /// @return false if formula is unsatisfiable and true otherwise
-bool wdsat_solve(int_t n, int_t new_l, int_t new_m, char *irr, char *X3, int_t xg, char mvc_graph[1000], char thread[1000]) {
+bool wdsat_solve(int_t n, int_t new_l, int_t new_m, char *irr, char *X3, int_t xg, int_t br_sym, char mvc_graph[1000], char thread[1000]) {
 	int_t i, j;
 	int_t nb_min_vars;
 	int_t conf[1]={0};
 	bool seen[50]={0};
+	m = new_m;
+	l = new_l;
 	cnf_initiate_from_dimacs();
 	xorset_initiate_from_dimacs();
 	if(!xorgauss_initiate_from_dimacs())
@@ -528,11 +530,25 @@ bool wdsat_solve(int_t n, int_t new_l, int_t new_m, char *irr, char *X3, int_t x
 	
 	if(xg == 0)
 	{
-		if(!wdsat_solve_rest(0, nb_min_vars - 1, conf)) {printf("UNSAT\n");printf("%lld\n",conf[0]);return false;}
+		if (br_sym == 0)
+		{
+			if(!wdsat_solve_rest(0, nb_min_vars - 1, conf)) {printf("UNSAT\n");printf("%lld\n",conf[0]);return false;}
+		}
+		else
+		{
+			if(!wdsat_solve_rest_sym(0, m * l - 1, true, conf)) {printf("UNSAT\n");printf("%lld\n",conf[0]);return false;}
+		}
 	}
 	if(xg == 1)
 	{
-		if(!wdsat_solve_rest_XG(0, nb_min_vars - 1, conf)) {printf("UNSAT\n");printf("%lld\n",conf[0]);return false;}
+		if (br_sym == 0)
+		{
+			if(!wdsat_solve_rest_XG(0, nb_min_vars - 1, conf)) {printf("UNSAT\n");printf("%lld\n",conf[0]);return false;}
+		}
+		else
+		{
+			if(!wdsat_solve_rest_XG_sym(0, m * l - 1, true, conf)) {printf("UNSAT\n");printf("%lld\n",conf[0]);return false;}
+		}
 	}
 	for(j = 1; j <= dimacs_nb_unary_vars(); j++)
 	{

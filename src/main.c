@@ -105,7 +105,7 @@ boolean_t generate(char *ifn, char *ofn) {
 	
 	if(_l == 0)
 		_l = n;
-	wdsat_solve(n ,_l, _m, irr, X3, xg, mvc_graph, thread);
+	wdsat_solve(n ,_l, _m, irr, X3, xg, br_sym, mvc_graph, thread);
 	return(__ON__);
 }
 
